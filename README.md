@@ -17,3 +17,9 @@
 ### APIなど
 - Google Cloud Vision API
 - Computer Vision(Microsoft Azure)
+
+## Android Camera API
+- [Camera API](https://developer.android.com/guide/topics/media/camera?hl=ja#camera-features)
+  - メモ
+- [Camera capture sessions and requests](https://developer.android.com/training/camera2/capture-sessions-requests)※英語
+
