@@ -9,9 +9,12 @@ import android.view.View
 import android.widget.ImageView
 
 class MainActivity : AppCompatActivity() {
+    lateinit var ocrUtil: OCRUtil
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        ocrUtil = OCRUtil(applicationContext)
     }
 
 
@@ -21,6 +24,14 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             val imageBitmap = data!!.extras!!.get("data") as Bitmap
             imageView.setImageBitmap(imageBitmap)
+
+            //imageBitmapをOCRする処理が必要？
+            imageBitmap?.let{
+                println(ocrUtil.getString(applicationContext, it, OCRUtil.Companion.LangType.getLangType("jpn").str))
+/*                    ocr.text = ocrUtil.getString(applicationContext, it, OCRUtil.Companion.LangType.getLangType("jap").str)
+                } ?: run {
+                    ocr.text = "bitmap is null"*/
+            }
         }
     }
     val REQUEST_IMAGE_CAPTURE = 1
