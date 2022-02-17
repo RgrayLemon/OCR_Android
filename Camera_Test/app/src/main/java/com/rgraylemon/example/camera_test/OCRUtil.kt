@@ -67,8 +67,7 @@ class OCRUtil(context: Context) {
     fun getString(context: Context, bitmap: Bitmap, lang: String): String {
         try {
             val baseApi = TessBaseAPI()
-            // assetsのコピーが上手くいっておらず、ファイルが存在しないエラーになってしまうため要修正
-            baseApi.init(context.getFilesDir().toString(), lang)
+            baseApi.init(context.filesDir.toString(), lang)
             baseApi.setImage(bitmap)
             val recognizedText = baseApi.utF8Text
             baseApi.end()
